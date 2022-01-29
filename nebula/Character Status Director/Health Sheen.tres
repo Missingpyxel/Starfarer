@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float speed = 2.0;
+uniform float shortening = 3.0;
+uniform float dampening = 2.0;
+uniform float period = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE,UV);
+	
+	vec2 ppuv = vec2(floor(UV.x / TEXTURE_PIXEL_SIZE.x) * TEXTURE_PIXEL_SIZE.x, floor(UV.y / TEXTURE_PIXEL_SIZE.y) * TEXTURE_PIXEL_SIZE.y);
+	
+	if(COLOR.a == 1.0) {
+		float coeff = ppuv.x + ppuv.y / 4.0;
+		float p_coeff = pow(pow(sin(coeff * period + TIME*speed),2.0),shortening) / dampening;
+		COLOR = mix(COLOR,vec4(1,1,1,1),p_coeff);
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/speed = 1.0
+shader_param/shortening = 8.0
+shader_param/dampening = 4.0
+shader_param/period = 2.0

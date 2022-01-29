@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://origins/Planets/Planetless/Title Screen/Noise/Fog Shader.gdshader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 83.6
+persistence = 0.608
+lacunarity = 2.4
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/noise = SubResource( 2 )

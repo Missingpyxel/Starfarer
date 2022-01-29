@@ -1,0 +1,50 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+
+uniform float starter = 1.1;
+uniform float grade = 1.7;
+
+uniform float border = 0.3;
+uniform float slow = 20.0;
+uniform float ratio = 10.0;
+
+float wrap(float val) {
+	return val - floor(val);
+}
+
+void fragment() {
+	if(distance(UV,vec2(0.5,0.5)) > border) {
+		
+		vec4 tex = texture(noise, vec2(wrap(UV.x/ratio + TIME/slow),UV.y * 3.0/ratio));
+		
+		if(tex.r < abs(border - distance(UV,vec2(0.5,0.5))) * 3.0) {
+			COLOR = vec4(0,0,0,0);
+		}
+	}
+	
+	if(distance(UV,vec2(0.5,0.5)) < 0.5) {
+		COLOR = mix(COLOR, vec4(1,1,1,0), sqrt(starter - pow(2.0 * distance(vec2(0.5,0.5),UV),grade)) - 0.2);
+	}
+}"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+period = 1.0
+persistence = 1.0
+lacunarity = 1.0
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[resource]
+shader = SubResource( 1 )
+shader_param/starter = 1.1
+shader_param/grade = 1.7
+shader_param/border = 0.25
+shader_param/slow = 150.0
+shader_param/ratio = 25.0
+shader_param/noise = SubResource( 3 )

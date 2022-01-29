@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://nebula/Character Loading Director/Vignette.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scale = 1.0;
+uniform float darkening = 0.05;
+uniform sampler2D vignette;
+
+void fragment() {
+    COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	float vv = distance(UV,vec2(0.5)) * 0.5;
+    float avg = (COLOR.r + COLOR.g + COLOR.b) / 3.0 - darkening;
+    COLOR = mix(vec4(avg,avg,avg,COLOR.a),COLOR,scale);
+	COLOR = mix(COLOR,vec4(0,0,0,1),vv * (1.0 - scale));
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/scale = 1.0
+shader_param/darkening = 0.05
+shader_param/vignette = ExtResource( 1 )

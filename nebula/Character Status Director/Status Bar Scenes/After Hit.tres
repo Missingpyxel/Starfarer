@@ -1,0 +1,49 @@
+[gd_resource type="ParticlesMaterial" load_steps=9 format=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 360.0
+_data = [ Vector2( 0, 236.455 ), 0.0, 0.0, 0, 0, Vector2( 0.994475, 125.591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+max_value = 100.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[resource]
+trail_size_modifier = SubResource( 8 )
+flag_disable_z = true
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 600.0
+initial_velocity_random = 0.71
+angular_velocity_curve = SubResource( 2 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 6 )
+damping = 100.0
+damping_curve = SubResource( 4 )
+angle = 720.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 1, 1, 1, 0.188235 )

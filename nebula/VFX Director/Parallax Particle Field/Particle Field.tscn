@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://nebula/VFX Director/Parallax Particle Field/Test Particles.tres" type="Material" id=1]
+[ext_resource path="res://nebula/VFX Director/Parallax Particle Field/Particle Field.gd" type="Script" id=2]
+
+[node name="Particle Field" type="Particles2D"]
+z_index = 2
+amount = 10
+visibility_rect = Rect2( -160, -90, 320, 180 )
+process_material = ExtResource( 1 )
+script = ExtResource( 2 )

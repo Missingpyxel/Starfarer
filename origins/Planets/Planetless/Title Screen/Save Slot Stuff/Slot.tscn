@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://origins/Universal/Fonts/osd_mono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Save Slot.png" type="Texture" id=2]
+[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/LorekeeperMini.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 5
+font_data = ExtResource( 1 )
+
+[node name="Slot" type="TextureButton"]
+margin_right = 147.0
+margin_bottom = 30.0
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number Label" type="Label" parent="."]
+margin_left = 31.4911
+margin_top = 19.5791
+margin_right = 34.4911
+margin_bottom = 24.5791
+custom_fonts/font = SubResource( 1 )
+text = "1"
+
+[node name="Mode Indicator" type="TextureRect" parent="."]
+margin_left = 122.0
+margin_top = 7.0
+margin_right = 139.0
+margin_bottom = 23.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

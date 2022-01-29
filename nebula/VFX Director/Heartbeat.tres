@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float coeff = 1.0;
+uniform float gray_coeff = 1.0;
+uniform float rad = 1.0;
+
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE,SCREEN_UV);
+	
+	float sat = (COLOR.x + COLOR.y + COLOR.z)/3.0;
+	
+	COLOR = mix(COLOR,vec4(sat,sat,sat,COLOR.a),gray_coeff/1.5);
+	float vig = distance(UV, vec2(0.5,0.5)) * 2.0;
+	vig = pow(vig,rad);
+	
+	if(vig > 1.0) {
+		vig = 1.0;
+	}
+	
+	vig -= 0.55;
+	
+	if(vig < 0.0) {
+		vig = 0.0;
+	}
+	
+	COLOR = mix(COLOR,vec4(0.4,0,0,1),vig * coeff);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/coeff = 0.0
+shader_param/gray_coeff = 0.0
+shader_param/rad = 1.157

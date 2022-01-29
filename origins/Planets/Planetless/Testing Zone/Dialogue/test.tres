@@ -1,0 +1,31 @@
+[{
+		"speaker": "Ember",
+		"lines": [{
+				"text": "Xenokin flagged us over here 'cause there was an unusal energy signature?",
+				"expression": "happy"
+			},
+			{
+				"text": "Either way, you're gonna have to let us by, this is important."
+			}
+		]
+	},
+	{
+		"speaker": "Renee",
+		"lines": [{
+				"text": "[b]Ember[/b], I don't think you fully grasp the situation here. I can't in let you through.",
+				"expression": "concerned"
+			},
+			{
+				"text": "It's for your own good.",
+				"speed": 0.05
+			}
+		]
+	},
+	{
+		"speaker": "Ember",
+		"lines": [{
+			"text": "Yeah, sure.",
+			"expression": "happy"
+		}]
+	}
+]

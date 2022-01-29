@@ -1,0 +1,1912 @@
+[gd_scene load_steps=85 format=2]
+
+[ext_resource path="res://nebula/Dialogue Director/text_box.png" type="Texture" id=1]
+[ext_resource path="res://nebula/Dialogue Director/bloop.mp3" type="AudioStream" id=2]
+[ext_resource path="res://origins/Characters/Ember/happy.png" type="Texture" id=3]
+[ext_resource path="res://nebula/Character Status Director/Abilities.png" type="Texture" id=4]
+[ext_resource path="res://origins/Universal/Fonts/osd_mono.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://nebula/Sound Effect Director/Sound Effect Director.gd" type="Script" id=6]
+[ext_resource path="res://nebula/Camera Director/Camera Director.gd" type="Script" id=7]
+[ext_resource path="res://nebula/Area Loading Director/Area Loading Director.gd" type="Script" id=8]
+[ext_resource path="res://nebula/Dialogue Director/Dialogue Director.gd" type="Script" id=9]
+[ext_resource path="res://nebula/Nebula.gd" type="Script" id=10]
+[ext_resource path="res://nebula/Character Loading Director/Character Loading Director.gd" type="Script" id=11]
+[ext_resource path="res://nebula/Character Status Director/Character Ability Director.gd" type="Script" id=12]
+[ext_resource path="res://nebula/VFX Director/Parallax Particle Field/Parallax Particle Field.gd" type="Script" id=13]
+[ext_resource path="res://nebula/Character Status Director/Unknown Ability.png" type="Texture" id=14]
+[ext_resource path="res://nebula/Character Status Director/Unknown Ultimate.png" type="Texture" id=15]
+[ext_resource path="res://nebula/Character Status Director/Ability Hueshift.tres" type="Material" id=16]
+[ext_resource path="res://nebula/Character Status Director/Status.png" type="Texture" id=17]
+[ext_resource path="res://nebula/VFX Director/Grayscale.tres" type="Material" id=18]
+[ext_resource path="res://origins/Characters/Null/Null.png" type="Texture" id=19]
+[ext_resource path="res://nebula/Character Status Director/Health Pip.png" type="Texture" id=20]
+[ext_resource path="res://nebula/Character Status Director/Health Sheen.tres" type="Material" id=21]
+[ext_resource path="res://nebula/Character Status Director/Gold Health Pip.png" type="Texture" id=22]
+[ext_resource path="res://nebula/VFX Director/Heartbeat.tres" type="Material" id=23]
+[ext_resource path="res://nebula/Escape Menu Director/Menu.tres" type="Material" id=24]
+[ext_resource path="res://nebula/Character Status Director/Status Bar Scenes/Death Canvas.gd" type="Script" id=25]
+[ext_resource path="res://nebula/Character Status Director/Shake.gd" type="Script" id=26]
+[ext_resource path="res://nebula/Character Status Director/Burst Anchor.gd" type="Script" id=27]
+[ext_resource path="res://nebula/Character Death Director/Death Animation Particles.tscn" type="PackedScene" id=28]
+[ext_resource path="res://nebula/Character Status Director/Tri.png" type="Texture" id=29]
+[ext_resource path="res://nebula/Character Status Director/Status Bar Scenes/After Hit.tres" type="Material" id=30]
+[ext_resource path="res://nebula/Escape Menu Director/Mission.png" type="Texture" id=31]
+[ext_resource path="res://nebula/Escape Menu Director/Journal.png" type="Texture" id=32]
+[ext_resource path="res://nebula/Escape Menu Director/Escape Menu Director.gd" type="Script" id=33]
+[ext_resource path="res://nebula/Escape Menu Director/Selector.png" type="Texture" id=34]
+[ext_resource path="res://nebula/Escape Menu Director/Button.png" type="Texture" id=35]
+[ext_resource path="res://nebula/Escape Menu Director/Button Active.png" type="Texture" id=36]
+[ext_resource path="res://nebula/Registry Director/Registry Director.gd" type="Script" id=37]
+[ext_resource path="res://nebula/Character Death Director/Burst.tres" type="Material" id=38]
+[ext_resource path="res://nebula/Save Game Director/Save Game Director.gd" type="Script" id=39]
+[ext_resource path="res://nebula/Zone Director/Zone Director.gd" type="Script" id=40]
+
+[sub_resource type="Animation" id=1]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot 1 Area/Slot 1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.840896 ),
+"update": 0,
+"values": [ Vector2( 20, 20 ), Vector2( 100, 20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot 2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.840896 ),
+"update": 0,
+"values": [ Vector2( 150, 80 ), Vector2( 230, 80 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Slot 3 Area/Slot 3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 2.63902 ),
+"update": 0,
+"values": [ Vector2( 20, 20 ), Vector2( 100, 20 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slot 2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Slot 1 Area/Slot 1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Slot 3 Area/Slot 3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot 1 Area/Slot 1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.840896 ),
+"update": 0,
+"values": [ Vector2( 20, 20 ), Vector2( -60, 20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot 2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.840896 ),
+"update": 0,
+"values": [ Vector2( 150, 80 ), Vector2( 70, 80 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Slot 3 Area/Slot 3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 2.63902 ),
+"update": 0,
+"values": [ Vector2( 20, 20 ), Vector2( -60, 20 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slot 2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Slot 1 Area/Slot 1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Slot 3 Area/Slot 3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 7
+font_data = ExtResource( 5 )
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/arrow.png-32e45b5cc9c29ae0ad20676997d2e3f2.stex"
+
+[sub_resource type="DynamicFont" id=5]
+size = 7
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=6]
+length = 0.7
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogue Border:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.125, 0.3, 0.475 ),
+"transitions": PoolRealArray( 2, 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 8, 142 ), Vector2( 7, 170 ), Vector2( 8, 142 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dialogue Border:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.125, 0.3, 0.475 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpeakerRight:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 256, 79 ), Vector2( 300, 79 ), Vector2( 300, 79 ), Vector2( 256, 79 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerRight:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dialogue Border/Name:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.6 ),
+"transitions": PoolRealArray( 2, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, -8 ), Vector2( 1, 0 ), Vector2( 1, 0 ), Vector2( 1, -8 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogue Border:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.378929, 2 ),
+"update": 0,
+"values": [ Vector2( 7, 190 ), Vector2( 8, 142 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dialogue Border:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpeakerRight:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 79 ), Vector2( 256, 79 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerRight:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogue Border/Arrow:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 293, 21 ), Vector2( 293, 20 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.2
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpeakerRight:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16 ),
+"transitions": PoolRealArray( 1, 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.03, 1.03 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+
+uniform bool apply = true;
+uniform float amount = 1.0;
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 color = texture_color;
+	
+	if (apply == true) {
+		float a_amount = amount / 100.0;
+		color.r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + a_amount, SCREEN_UV.y)).r;
+		color.g = texture(SCREEN_TEXTURE, SCREEN_UV).g;
+		color.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - a_amount, SCREEN_UV.y)).b;
+	}
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/apply = true
+shader_param/amount = 0.0
+
+[sub_resource type="Animation" id=12]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Camera Director:hit_strength")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.28 ),
+"transitions": PoolRealArray( 1, 0.406126, 1 ),
+"update": 0,
+"values": [ 0, 0.5, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("./Abberation/Shader:material:shader_param/amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.75 ),
+"transitions": PoolRealArray( 1, 1.41421, 1 ),
+"update": 0,
+"values": [ 0.0, 0.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../Camera Director:zoom")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.21, 0.77 ),
+"transitions": PoolRealArray( 1.68179, 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 0.95 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Heartbeat/Shader:material:shader_param/coeff")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1.8, 1 ),
+"update": 0,
+"values": [ 0.0, 0.3, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Heartbeat/Shader:material:shader_param/gray_coeff")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Empty"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Swap Bar:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 18, 1 ), Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform float grayscale = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE,UV);
+	float gray = COLOR.r + COLOR.g + COLOR.b;
+    vec4 gray_color = vec4(gray/3.0,gray/3.0,gray/3.0,COLOR.a);
+	COLOR = (1.0 - grayscale) * COLOR + grayscale*gray_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/grayscale = 1.0
+
+[sub_resource type="Animation" id=16]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2.37841, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 14 )
+shader_param/grayscale = 1.0
+
+[sub_resource type="Animation" id=19]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2.37841, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=21]
+code = "shader_type canvas_item;
+
+uniform float grayscale = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE,UV);
+	float gray = COLOR.r + COLOR.g + COLOR.b;
+    vec4 gray_color = vec4(gray/3.0,gray/3.0,gray/3.0,COLOR.a);
+	COLOR = (1.0 - grayscale) * COLOR + grayscale*gray_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 21 )
+shader_param/grayscale = 1.0
+
+[sub_resource type="Animation" id=23]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2.37841, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=25]
+code = "shader_type canvas_item;
+
+uniform float grayscale = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE,UV);
+	float gray = COLOR.r + COLOR.g + COLOR.b;
+    vec4 gray_color = vec4(gray/3.0,gray/3.0,gray/3.0,COLOR.a);
+	COLOR = (1.0 - grayscale) * COLOR + grayscale*gray_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=26]
+shader = SubResource( 25 )
+shader_param/grayscale = 1.0
+
+[sub_resource type="Animation" id=27]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2.37841, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/grayscale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera Director:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1.9, 2.1, 3.3 ),
+"transitions": PoolRealArray( 0.34151, 0.329877, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.1, 3.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.1, 4 ),
+"transitions": PoolRealArray( -3.24901, 0.34151 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.1, 6.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Flash:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5.8, 6.9, 7.5 ),
+"transitions": PoolRealArray( 1, 2.37842, 0.517632, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../VFX Director/Screen Space Shaders/Abberation/Shader:material:shader_param/amount")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1.62451, 1 ),
+"update": 0,
+"values": [ 0.0, 0.4, 0.1, 2.0 ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.3, 6.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_fda"
+}, {
+"args": [  ],
+"method": "clear"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Burst:material:shader_param/vig")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 6.1, 6.9 ),
+"transitions": PoolRealArray( 2.07053, 1 ),
+"update": 0,
+"values": [ 0.0, 1.3 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Burst:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 6.1, 6.9, 7.3, 9 ),
+"transitions": PoolRealArray( 1, 0.5, 1.41421, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath(".:shake_mod")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3.3, 6.5 ),
+"transitions": PoolRealArray( 1.41421, 1 ),
+"update": 0,
+"values": [ 5, 12 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:death_particles_mod")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 3.3, 6.5 ),
+"transitions": PoolRealArray( 1.1487, 1 ),
+"update": 0,
+"values": [ 1, 13 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.1, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 4.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+}, {
+"args": [  ],
+"method": "spawn_cut"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Char Shake")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+}, {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Curve" id=31]
+max_value = 360.0
+_data = [ Vector2( 0, 236.455 ), 0.0, 0.0, 0, 0, Vector2( 0.994475, 125.591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=32]
+curve = SubResource( 31 )
+
+[sub_resource type="Curve" id=33]
+max_value = 100.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=34]
+curve = SubResource( 33 )
+
+[sub_resource type="Curve" id=35]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=36]
+curve = SubResource( 35 )
+
+[sub_resource type="Curve" id=37]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=38]
+curve = SubResource( 37 )
+
+[sub_resource type="ParticlesMaterial" id=39]
+trail_size_modifier = SubResource( 38 )
+flag_disable_z = true
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 600.0
+initial_velocity_random = 0.71
+angular_velocity_curve = SubResource( 32 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 36 )
+damping = 100.0
+damping_curve = SubResource( 34 )
+angle = 720.0
+angle_random = 1.0
+scale = 3.0
+scale_random = 1.0
+
+[sub_resource type="Animation" id=40]
+length = 40.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Death Final Particles:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 50.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Death Color Particles:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 50 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 231.633, 360.0 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Blur"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Backdrop:material:shader_param/blur_amt")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.500001, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:uts")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mission:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Journal:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:open")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Buttons/Resume:mouse_filter")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Buttons/Restart:mouse_filter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Buttons/Evac:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Buttons/Settings:mouse_filter")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Buttons/Quit:mouse_filter")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="DynamicFont" id=43]
+size = 6
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=44]
+size = 5
+extra_spacing_top = -1
+extra_spacing_bottom = -1
+font_data = ExtResource( 5 )
+
+[node name="Nebula" type="Node"]
+script = ExtResource( 10 )
+
+[node name="Registry Director" type="Node" parent="."]
+script = ExtResource( 37 )
+
+[node name="Save Game Director" type="Node" parent="."]
+script = ExtResource( 39 )
+
+[node name="Camera Director" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 7 )
+hit_offset = Vector2( 1, 0 )
+hit_strength = 0.0
+
+[node name="Character Loading Director" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Character Loading Director"]
+layer = 4
+
+[node name="Slot 1 Area" type="TextureButton" parent="Character Loading Director/CanvasLayer"]
+margin_left = 50.0
+margin_top = 60.0
+margin_right = 110.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 1" type="TextureRect" parent="Character Loading Director/CanvasLayer/Slot 1 Area"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 10, 10 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 2" type="TextureRect" parent="Character Loading Director/CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 230.0
+margin_top = 80.0
+margin_right = 250.0
+margin_bottom = 100.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 10, 10 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 3 Area" type="TextureButton" parent="Character Loading Director/CanvasLayer"]
+margin_left = 210.0
+margin_top = 60.0
+margin_right = 270.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 3" type="TextureRect" parent="Character Loading Director/CanvasLayer/Slot 3 Area"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 10, 10 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Swap" type="AnimationPlayer" parent="Character Loading Director/CanvasLayer"]
+"anims/Swap Left" = SubResource( 1 )
+"anims/Swap Right" = SubResource( 2 )
+
+[node name="Character Swap Cooldown" type="Timer" parent="Character Loading Director"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Area Loading Director" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Zone Director" type="Node" parent="."]
+script = ExtResource( 40 )
+
+[node name="Dialogue Director" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="SpeakerRight" type="TextureRect" parent="Dialogue Director"]
+anchor_right = 0.318
+margin_left = 256.0
+margin_top = 79.0
+margin_right = 218.242
+margin_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 64, 64 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue Border" type="TextureRect" parent="Dialogue Director"]
+margin_left = 7.0
+margin_top = 143.0
+margin_right = 311.0
+margin_bottom = 173.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Dialogue Director/Dialogue Border"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 298.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="TextureRect" parent="Dialogue Director/Dialogue Border"]
+margin_left = 293.0
+margin_top = 21.0
+margin_right = 298.0
+margin_bottom = 24.0
+texture = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Dialogue Director/Dialogue Border"]
+show_behind_parent = true
+margin_left = 1.0
+margin_top = -8.0
+margin_right = 72.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 5 )
+text = "Ember"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue Box Animator" type="AnimationPlayer" parent="Dialogue Director"]
+"anims/Character Swap" = SubResource( 6 )
+"anims/Pop In" = SubResource( 7 )
+
+[node name="Arrow Animator" type="AnimationPlayer" parent="Dialogue Director"]
+"anims/Arrow Bounce" = SubResource( 8 )
+
+[node name="Speaker Animator" type="AnimationPlayer" parent="Dialogue Director"]
+"anims/Emotion Change" = SubResource( 9 )
+
+[node name="Blooper" type="AudioStreamPlayer" parent="Dialogue Director"]
+stream = ExtResource( 2 )
+
+[node name="Sound Effect Director" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="VFX Director" type="Node" parent="."]
+
+[node name="Parallax Particle Field" type="Node" parent="VFX Director"]
+script = ExtResource( 13 )
+
+[node name="Screen Space Shaders" type="Node" parent="VFX Director"]
+
+[node name="Heartbeat" type="CanvasLayer" parent="VFX Director/Screen Space Shaders"]
+
+[node name="Shader" type="ColorRect" parent="VFX Director/Screen Space Shaders/Heartbeat"]
+material = ExtResource( 23 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grayscale" type="CanvasLayer" parent="VFX Director/Screen Space Shaders"]
+layer = 3
+
+[node name="Shader" type="ColorRect" parent="VFX Director/Screen Space Shaders/Grayscale"]
+material = ExtResource( 18 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abberation" type="CanvasLayer" parent="VFX Director/Screen Space Shaders"]
+layer = 2
+
+[node name="Shader" type="ColorRect" parent="VFX Director/Screen Space Shaders/Abberation"]
+material = SubResource( 11 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hit" type="AnimationPlayer" parent="VFX Director/Screen Space Shaders"]
+anims/Hit = SubResource( 12 )
+
+[node name="Character Status Director" type="CanvasLayer" parent="."]
+script = ExtResource( 12 )
+
+[node name="Dash Cooldown" type="Timer" parent="Character Status Director"]
+one_shot = true
+
+[node name="Primary Cooldown" type="Timer" parent="Character Status Director"]
+one_shot = true
+
+[node name="Secondary Cooldown" type="Timer" parent="Character Status Director"]
+one_shot = true
+
+[node name="Utility Cooldown" type="Timer" parent="Character Status Director"]
+one_shot = true
+
+[node name="Ultimate Cooldown" type="Timer" parent="Character Status Director"]
+one_shot = true
+
+[node name="Status Panel" type="TextureRect" parent="Character Status Director"]
+material = ExtResource( 16 )
+margin_left = 3.0
+margin_top = 154.0
+margin_right = 45.0
+margin_bottom = 177.0
+texture = ExtResource( 17 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dash Bar" type="ColorRect" parent="Character Status Director/Status Panel"]
+margin_left = 4.0
+margin_top = 13.0
+margin_right = 36.0
+margin_bottom = 14.0
+color = Color( 0.541176, 0.760784, 0.745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Swap Bar" type="ColorRect" parent="Character Status Director/Status Panel"]
+margin_left = 4.0
+margin_top = 18.0
+margin_right = 22.0
+margin_bottom = 19.0
+color = Color( 0.552941, 0.760784, 0.541176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Swap Bar Animator" type="AnimationPlayer" parent="Character Status Director/Status Panel"]
+anims/Empty = SubResource( 13 )
+
+[node name="Segments" type="Control" parent="Character Status Director/Status Panel"]
+margin_right = 40.0
+margin_bottom = 13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red HP" type="TextureProgress" parent="Character Status Director/Status Panel"]
+material = ExtResource( 21 )
+margin_right = 120.0
+margin_bottom = 13.0
+rect_scale = Vector2( 0.973122, 0.946245 )
+rect_pivot_offset = Vector2( 9, 6.5 )
+max_value = 5.0
+value = 1.0
+texture_progress = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yellow HP" type="TextureProgress" parent="Character Status Director/Status Panel"]
+margin_right = 120.0
+margin_bottom = 13.0
+max_value = 5.0
+value = 5.0
+texture_progress = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Character Status Director/Status Panel"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Pulse Cooldown" type="Timer" parent="Character Status Director/Status Panel"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Abilities Panel" type="TextureRect" parent="Character Status Director"]
+material = ExtResource( 16 )
+margin_left = 231.0
+margin_top = 153.0
+margin_right = 317.0
+margin_bottom = 177.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Primary" type="TextureRect" parent="Character Status Director/Abilities Panel"]
+material = SubResource( 15 )
+anchor_left = 0.147
+anchor_top = 0.5
+anchor_right = 0.147
+anchor_bottom = 0.5
+margin_left = -8.642
+margin_top = -4.0
+margin_right = 3.35801
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="ColorRect" parent="Character Status Director/Abilities Panel/Primary"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -7.62939e-06
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Character Status Director/Abilities Panel/Primary"]
+anims/Available = SubResource( 16 )
+anims/Used = SubResource( 17 )
+
+[node name="Secondary" type="TextureRect" parent="Character Status Director/Abilities Panel"]
+material = SubResource( 18 )
+margin_left = 20.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="ColorRect" parent="Character Status Director/Abilities Panel/Secondary"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -7.62939e-06
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Character Status Director/Abilities Panel/Secondary"]
+anims/Available = SubResource( 19 )
+anims/Used = SubResource( 20 )
+
+[node name="Utility" type="TextureRect" parent="Character Status Director/Abilities Panel"]
+material = SubResource( 22 )
+margin_left = 43.0
+margin_top = 8.0
+margin_right = 55.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="ColorRect" parent="Character Status Director/Abilities Panel/Utility"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -7.62939e-06
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Character Status Director/Abilities Panel/Utility"]
+anims/Available = SubResource( 23 )
+anims/Used = SubResource( 24 )
+
+[node name="Ultimate" type="TextureRect" parent="Character Status Director/Abilities Panel"]
+material = SubResource( 26 )
+margin_left = 66.0
+margin_top = 4.0
+margin_right = 82.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="ColorRect" parent="Character Status Director/Abilities Panel/Ultimate"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Character Status Director/Abilities Panel/Ultimate"]
+anims/Available = SubResource( 27 )
+anims/Used = SubResource( 28 )
+
+[node name="Burst Anchor" type="Control" parent="Character Status Director"]
+margin_left = 3.0
+margin_top = 159.0
+margin_right = 3.0
+margin_bottom = 159.0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character Death Director" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource( 25 )
+
+[node name="Death" type="AnimationPlayer" parent="Character Death Director"]
+anims/Death = SubResource( 29 )
+
+[node name="Death Types" type="AnimationPlayer" parent="Character Death Director"]
+anims/Default = SubResource( 30 )
+
+[node name="Black" type="ColorRect" parent="Character Death Director"]
+modulate = Color( 2.38419e-07, 2.38419e-07, 2.38419e-07, 2.38419e-07 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="TextureRect" parent="Character Death Director"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 150.0
+margin_top = 80.0
+margin_right = 170.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 10, 10 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cuts" type="Control" parent="Character Death Director"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Death Animation Particles" parent="Character Death Director/Cuts" instance=ExtResource( 28 )]
+scale = Vector2( 0.0800001, 0.0800001 )
+
+[node name="Flash" type="ColorRect" parent="Character Death Director"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Death Final Particles" type="Particles2D" parent="Character Death Director/Flash"]
+position = Vector2( 160, 90 )
+rotation = 0.215415
+scale = Vector2( 0.15, 0.15 )
+emitting = false
+amount = 30
+lifetime = 600.0
+one_shot = true
+preprocess = 3.0
+explosiveness = 1.0
+process_material = ExtResource( 30 )
+texture = ExtResource( 29 )
+
+[node name="Death Color Particles" type="Particles2D" parent="Character Death Director/Flash"]
+position = Vector2( 160, 90 )
+rotation = 4.08117
+scale = Vector2( 0.15, 0.15 )
+emitting = false
+amount = 30
+lifetime = 600.0
+one_shot = true
+preprocess = 3.0
+explosiveness = 1.0
+process_material = SubResource( 39 )
+texture = ExtResource( 29 )
+
+[node name="Spin" type="AnimationPlayer" parent="Character Death Director/Flash"]
+autoplay = "Spin"
+anims/Spin = SubResource( 40 )
+
+[node name="Spin 2" type="AnimationPlayer" parent="Character Death Director/Flash"]
+autoplay = "Spin"
+anims/Spin = SubResource( 41 )
+
+[node name="Burst" type="ColorRect" parent="Character Death Director"]
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 38 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Death Timer" type="Timer" parent="Character Death Director"]
+wait_time = 2.1
+one_shot = true
+
+[node name="Char Shake" type="Timer" parent="Character Death Director"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Escape Menu Director" type="CanvasLayer" parent="."]
+layer = 6
+script = ExtResource( 33 )
+
+[node name="Blur" type="AnimationPlayer" parent="Escape Menu Director"]
+anims/Blur = SubResource( 42 )
+
+[node name="Backdrop" type="ColorRect" parent="Escape Menu Director"]
+material = ExtResource( 24 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="Escape Menu Director"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 130.0
+margin_right = 190.0
+margin_bottom = 180.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="TextureButton" parent="Escape Menu Director/Buttons"]
+material = ExtResource( 16 )
+margin_top = 40.0
+margin_right = 60.0
+margin_bottom = 56.0
+mouse_filter = 2
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+texture_hover = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Escape Menu Director/Buttons/Resume"]
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 43 )
+text = "Resume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="Escape Menu Director/Buttons"]
+material = ExtResource( 16 )
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 77.0
+mouse_filter = 2
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+texture_hover = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Escape Menu Director/Buttons/Restart"]
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 44 )
+text = "Fall Back to
+Last Checkpoint"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Evac" type="TextureButton" parent="Escape Menu Director/Buttons"]
+material = ExtResource( 16 )
+margin_top = 82.0
+margin_right = 60.0
+margin_bottom = 98.0
+mouse_filter = 2
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+texture_hover = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="Escape Menu Director/Buttons/Evac"]
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 44 )
+text = "Emergency
+Evacuation"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="TextureButton" parent="Escape Menu Director/Buttons"]
+material = ExtResource( 16 )
+margin_top = 103.0
+margin_right = 60.0
+margin_bottom = 119.0
+mouse_filter = 2
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+texture_hover = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Escape Menu Director/Buttons/Settings"]
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 43 )
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Escape Menu Director/Buttons"]
+material = ExtResource( 16 )
+margin_top = 124.0
+margin_right = 60.0
+margin_bottom = 140.0
+mouse_filter = 2
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+texture_hover = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="Escape Menu Director/Buttons/Quit"]
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 43 )
+text = "Save and Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Tween" type="Tween" parent="Escape Menu Director"]
+
+[node name="Journal" type="TextureRect" parent="Escape Menu Director"]
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 16 )
+margin_left = 320.0
+margin_top = 10.0
+margin_right = 560.0
+margin_bottom = 170.0
+texture = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Journal Tween" type="Tween" parent="Escape Menu Director"]
+
+[node name="Mission" type="TextureRect" parent="Escape Menu Director"]
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 16 )
+margin_left = -70.0
+margin_top = 10.0
+margin_right = 3.05176e-05
+margin_bottom = 170.0
+texture = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mission Tween" type="Tween" parent="Escape Menu Director"]
+
+[node name="Left Bracket" type="TextureButton" parent="Escape Menu Director"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 0.111714
+margin_right = 30.1117
+margin_bottom = 180.0
+texture_normal = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right Bracket" type="TextureButton" parent="Escape Menu Director"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 290.0
+margin_right = 320.0
+margin_bottom = 180.0
+texture_normal = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Character Loading Director/CanvasLayer/Slot 1 Area" to="Character Loading Director" method="_on_Slot_1_Area_pressed"]
+[connection signal="pressed" from="Character Loading Director/CanvasLayer/Slot 3 Area" to="Character Loading Director" method="_on_Slot_3_Area_pressed"]
+[connection signal="timeout" from="Character Status Director/Status Panel/Pulse Cooldown" to="Character Status Director" method="_on_Pulse_Cooldown_timeout"]
+[connection signal="pressed" from="Escape Menu Director/Buttons/Resume" to="Escape Menu Director" method="_on_Resume_pressed"]
+[connection signal="mouse_entered" from="Escape Menu Director/Left Bracket" to="Escape Menu Director" method="_on_Left_Bracket_mouse_entered"]
+[connection signal="mouse_exited" from="Escape Menu Director/Left Bracket" to="Escape Menu Director" method="_on_Left_Bracket_mouse_exited"]
+[connection signal="pressed" from="Escape Menu Director/Left Bracket" to="Escape Menu Director" method="_on_Left_Bracket_pressed"]
+[connection signal="mouse_entered" from="Escape Menu Director/Right Bracket" to="Escape Menu Director" method="_on_Right_Bracket_mouse_entered"]
+[connection signal="mouse_exited" from="Escape Menu Director/Right Bracket" to="Escape Menu Director" method="_on_Right_Bracket_mouse_exited"]
+[connection signal="pressed" from="Escape Menu Director/Right Bracket" to="Escape Menu Director" method="_on_Right_Bracket_pressed"]

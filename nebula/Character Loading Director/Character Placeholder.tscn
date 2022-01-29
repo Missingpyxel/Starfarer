@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://nebula/Character Loading Director/Character Placeholder Controller.gd" type="Script" id=1]
+
+[node name="Character Placeholder" type="KinematicBody2D"]
+script = ExtResource( 1 )

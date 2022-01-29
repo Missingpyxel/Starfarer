@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform float modifier = 0.0;
+
+void fragment() {
+	COLOR = mix(COLOR,vec4(0,0,0,0),texture(noise,UV).r + modifier);
+}"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+period = 83.6
+persistence = 0.608
+
+[sub_resource type="NoiseTexture" id=3]
+noise = SubResource( 2 )
+
+[resource]
+shader = SubResource( 1 )
+shader_param/modifier = 0.2
+shader_param/noise = SubResource( 3 )

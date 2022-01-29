@@ -1,0 +1,19 @@
+{
+	"speaker" : "Speaker Name",
+	"emotion" : null,
+	
+	"wait" : 0,
+	
+	"new_camera_subject" : null,
+	"new_camera_position" : null,
+	
+	"skippable" : true,
+	"lines" : [
+		{
+			"text" : "This is a dialogue line.",
+			"expression" : null,
+			"sound" : null,
+			"speed" : 0.03
+		}
+	]
+}
