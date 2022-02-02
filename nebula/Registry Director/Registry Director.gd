@@ -4,6 +4,7 @@ var directories = ["res://origins/"]
 
 var character_registry = {}
 var area_registry = {}
+var modifier_registry = {}
 var chapter_registry = {}
 
 func list_files_in_dir(directory : String):
@@ -31,17 +32,24 @@ func _ready():
 		for chara in chars:
 			character_registry[chara] = load(directory + "/Characters/" + chara + "/Character.tscn/")
 
-		# Area Registry
+		# Area / Modifier Registry
 		var planets = list_files_in_dir(directory + "/Planets/")
+		var dir = Directory.new()
 				
 		for planet in planets:
 			var areas = list_files_in_dir(directory + "/Planets/" + planet + "/")
 			
 			for area in areas:
-				area_registry[area] = {
-					"Path" : directory + "/Planets/" + planet + "/" + area + "/Area.tscn/",
-					"Planet" : planet
-				}
+				
+				#add loop for modifiers n such
+				
+				if(dir.file_exists(directory + "/Planets/" + planet + "/" + area + "/Area.tscn/")):
+					area_registry[area] = {
+						"Path" : directory + "/Planets/" + planet + "/" + area + "/Area.tscn/",
+						"Planet" : planet,
+					}
+				
+				
 				
 		# Chapter Registry
 		var chapters = list_files_in_dir(directory + "/Chapters/")

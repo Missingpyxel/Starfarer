@@ -2,8 +2,6 @@ extends Node
 
 var current_area = null
 var current_path = null
-var current_modifier = null
-var current_mission = null
 var current_scene_type = null
 
 var character_pos = null
@@ -11,11 +9,10 @@ var character_pos = null
 func _ready():
 	Nebula.connect("area_loaded",self,"load_area_after")
 
-func load_area(area:String,path,modifier):
+func load_area(area:String,path):
 	
 	current_area = area
 	current_path = path
-	current_modifier = modifier
 	
 	get_tree().change_scene_to(load(path))
 
