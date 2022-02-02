@@ -1,18 +1,47 @@
 extends Node
 
 var target_save = null
-var target_act = null
+var target_chapter = null
 var target_time = null
 
 var firstboot = false
 
+# Universal
 var difficulty = "starfarer"
 
-var save = {
-	"day" : 0,
-	"characters" : [],
-	"decision_modifiers" : {}
+# Chapter
+var global_achievements = {
+	"debug" : [
+		"test"
+	]
 }
+
+var global_values = {
+	"debug" : {
+		"test" : 0
+	}
+}
+
+func is_achievement_completed(key : String, achievement: String):
+	return (achievement in global_achievements.get(key, []))
+	
+func add_achievement(key : String, achievement: String):
+	if(key in global_achievements.keys()):
+		if !(achievement in global_achievements[key]):
+			global_achievements[key].append(achievement)
+	else:
+		global_achievements[key] = [achievement]
+		
+func get_value(key : String, value : String):
+	return global_values.get(key,{}).get(value,null)
+
+func change_value(key : String, value : String, new_value):
+	if(key in global_values.keys()):
+		global_values[key][value] = new_value
+	else:
+		global_values[key] = {value: new_value}
+
+var day = 0
 
 onready var ald = Nebula.get_node("Area Loading Director")
 onready var cld = Nebula.get_node("Character Loading Director")
@@ -22,7 +51,7 @@ export(Array) var necessary_directories = ["saves","mods","screenshots","persist
 
 func save_exists(chapter):
 	var file = Directory.new()
-	return file.dir_exists("user://saves/" + str(target_save) + "/acts/" + str(target_act) + "/")
+	return file.dir_exists("user://saves/" + str(target_save) + "/chapters/" + str(target_chapter) + "/")
 
 func list_files_in_dir(directory : String):
 	var array = []
@@ -41,7 +70,8 @@ func list_files_in_dir(directory : String):
 	
 # actual functions
 
-func initialize_slot(difficulty : String):
+# On slot created
+func initialize_slot(diff : String):
 	var dir = Directory.new()
 	var saves = list_files_in_dir("user://saves/")
 	var maxn = 0
@@ -51,118 +81,88 @@ func initialize_slot(difficulty : String):
 	maxn += 1
 	
 	dir.make_dir("user://saves/" + str(maxn) + "/")
-	dir.make_dir("user://saves/" + str(maxn) + "/acts/")
+	dir.make_dir("user://saves/" + str(maxn) + "/chapters/")
 	
-	var slot_data = {"difficulty" : difficulty}
-	
-	var file = File.new()
-	file.open("user://saves/" + str(maxn) + "/save.json",File.WRITE)
-	file.store_string(JSON.print(slot_data))
-	file.close()
-	
+	difficulty = diff
 	target_save = str(maxn)
+	
+	save_universal()
+	
 	print(target_save)
 
+# If a save doesn't already exist for chapter...
 func initialize_save(bypass = false):
-	var file = File.new()
+	print("Checking if save exits for " + target_chapter)
 	
-	print(target_save + " II")
-	
-	if(bypass or !save_exists(target_act)):
+	if(bypass or !save_exists(target_chapter)):
+		print("Initializing new save for " + target_chapter)
+		
 		var dir = Directory.new()
-		dir.make_dir("user://saves/" + str(target_save) + "/acts/" + str(target_act) + "/")
+		dir.make_dir("user://saves/" + str(target_save) + "/chapters/" + str(target_chapter) + "/")
 		
-		var act_obj = Nebula.get_node("Registry Director").chapter_registry[target_act]
-		
-		var area_data = {}
-		area_data["area"] = act_obj.starting_area
-		area_data["modifier"] = act_obj.starting_modifier
-		area_data["position"] = Vector2.ZERO
-		
-		file.open("user://saves/" + str(target_save) + "/acts/" + str(target_act) + "/area.json",File.WRITE)
-		file.store_string(JSON.print(area_data))
-		file.close()
+		var chapter_obj = Nebula.get_node("Registry Director").chapter_registry[target_chapter]
+		save(chapter_obj)
 
-func save_chapter():
-	pass
+# All stuff that transfers across the whole slot. Difficulty, character unlocks and deaths
+func save_universal():
+	if(target_save):
+		var universal_data = {}
+		
+		universal_data["difficulty"] = difficulty
+		
+		var universal_file = File.new()
+		universal_file.open("user://saves/" + str(target_save) + "/slot.json", File.WRITE)
+		universal_file.store_string(JSON.print(universal_data, "\t"))
+		universal_file.close()
 
-func save_area(pos = false):
-	if(target_save and target_act):
-		# act-level
-		var area_data = {}
+# All chapter- and area-related stuff goes here
+func save(chapter_obj = null):
+	if(target_save and target_chapter):
+		var chapter_data = {}
 		
-		save["area"] = ald.current_area
-		save["modifier"] = ald.current_modifier
+		chapter_data["difficulty"] = difficulty
+		chapter_data["day"] = day
+		chapter_data["global_achievements"] = global_achievements
+		chapter_data["global_values"] = global_values
 		
-		if(pos):
-			save["position"] = cld.current_character.position
-		elif(zd.last_completed_zone):
-			save["position"] = zd.last_completed_zone.get_node("CollisionShape2D").position
-		else:
-			save["position"] = Vector2.ZERO
+		if(chapter_obj != null):
+			chapter_data["area"] = {}
 			
-		save["completed_zones"] = zd.completed_zones
+			chapter_data["area"]["area"] = chapter_obj.starting_area
+			chapter_data["area"]["position"] = Vector2.ZERO
+			chapter_data["area"]["completed_zones"] = []
+				
+		else:
+			chapter_data["area"] = get_area_object(true)
 		
-		var act_file = File.new()
-		act_file.open("user://saves/" + str(target_save) + "/acts/" + str(target_act) + "/area.json", File.WRITE)
-		act_file.store_string(JSON.print(save, "\t"))
-		act_file.close()
+		var chapter_file = File.new()
+		chapter_file.open("user://saves/" + str(target_save) + "/chapters/" + str(target_chapter) + "/save.json", File.WRITE)
+		chapter_file.store_string(JSON.print(chapter_data, "\t"))
+		chapter_file.close()
+		
+func get_area_object(pos = false):
+	if(target_save and target_chapter):
+		var area_data = {}
+		
+		area_data["area"] = ald.current_area
+		area_data["position"] = cld.current_character.position
+		area_data["completed_zones"] = zd.completed_zones
+		
+		return area_data
 	
 func load_game():
-	var area_file = File.new()
-	area_file.open("user://saves/" + str(target_save) + "/acts/" + str(target_act) + "/area.json", File.READ)
-	
-	var area_data = JSON.parse(area_file.get_as_text()).get_result()
-	
-	Nebula.load_area(area_data["area"], area_data["modifier"])
-	ald.character_pos = parse_json(area_data["position"])
-	
-func get_dead_chars(time = false):
-	var deaths = []
-	
 	var file = File.new()
 	
-	if(file.file_exists("user://saves/" + str(target_save) + "/deaths.json")):
-		file.open("user://saves/" + str(target_save) + "/deaths.json",File.READ)
-		deaths = JSON.parse(file.get_as_text())
-		file.close()
-		
-		if(!time):
-			var real_deaths = []
-			for death in deaths.get_result():
-				real_deaths.append(death[0])
-			
-			return real_deaths
-			
-		return deaths.get_result()
+	file.open("user://saves/" + str(target_save) + "/chapters/" + str(target_chapter) + "/save.json", File.READ)
+	var chapter_data = JSON.parse(file.get_as_text()).get_result()
 	
-	file.close()
-	return deaths
+	difficulty = chapter_data["difficulty"]
+	day = chapter_data["day"]
+	global_achievements = chapter_data["global_achievements"]
+	global_values = chapter_data["global_values"]
 	
-func kill_character(char_name : String):
-	var deaths = get_dead_chars(true)
-	var to_remove = []
-	var overwritten = false
-	
-	for chara in deaths:
-		if(chara[0] == char_name):
-			print("id")
-			if(chara[1] >= target_time):
-				to_remove.append(chara)
-				print("removing")
-			else:
-				overwritten = true
-				
-	for death in to_remove:
-		deaths.erase(death)
-	
-	if(!overwritten):
-		deaths.append([char_name,target_time])
-		
-		var file = File.new()
-		file.open("user://saves/" + str(target_save) + "/deaths.json",File.WRITE)
-		file.store_string(JSON.print(deaths))
-		file.close()
+	Nebula.load_area(chapter_data["area"]["area"])
+	ald.character_pos = parse_json(chapter_data["area"]["position"])
 	
 func grant_cheat_access():
 	var file = File.new()

@@ -59,7 +59,4 @@ func load_area_after():
 		
 		if(character_pos):
 			print(character_pos)
-			Nebula.get_node("Character Loading Director").current_character.position = character_pos
-		
-		Nebula.get_node("Save Game Director").save_area()
-		
+			Nebula.get_node("Character Loading Director").current_character.position = character_pos		

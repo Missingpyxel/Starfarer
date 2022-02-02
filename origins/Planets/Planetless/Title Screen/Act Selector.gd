@@ -6,7 +6,7 @@ func construct_act_selector():
 	for chapter in Nebula.get_node("Registry Director").chapter_registry:
 		var ch = Nebula.get_node("Registry Director").chapter_registry[chapter]
 		
-		ch.get_node("Button").connect("pressed",self,"select_act",[chapter])
+		ch.get_node("Button").connect("pressed",self,"select_chapter",[chapter])
 		self.add_child(ch)
 		
 	for child in self.get_children():
@@ -25,11 +25,11 @@ func draw_lines(name : String):
 			
 			draw_lines(child.chapter_name)
 
-func select_act(chapter):
+func select_chapter(chapter):
 	var sgd = Nebula.get_node("Save Game Director")
 	var ch = Nebula.get_node("Registry Director").chapter_registry[chapter]
 	
-	sgd.target_act = chapter
+	sgd.target_chapter = chapter
 	sgd.target_time = ch.time
 	
 	get_parent().get_node("Act Selector Animation").play("Fade Out")

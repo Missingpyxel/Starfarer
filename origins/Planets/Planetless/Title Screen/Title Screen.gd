@@ -17,7 +17,7 @@ func _input(event):
 		if(Nebula.get_node("Save Game Director").firstboot):
 			out = true
 			Nebula.get_node("Save Game Director").initialize_slot("starfarer")
-			get_parent().get_node("Functionals/Act Selector").select_act("Act 1")
+			get_parent().get_node("Functionals/Act Selector").select_chapter("Act 1")
 			
 		else:
 			out = true

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/Line.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+	COLOR = mix(vec4(0.5,0.6,1,1),vec4(1,0.5,0.5,1),UV.x);
+	
+	if(UV.y - 0.5 > sin(UV.x * 3.14)/2.0 || UV.y - 0.5 < -sin(UV.x * 3.14)/2.0 ) {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.553398, 1 )
+colors = PoolColorArray( 0.533333, 0.592157, 0.968627, 0, 0.745098, 0.54902, 0.756863, 1, 0.941176, 0.509804, 0.556863, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 12, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 67.95
+angular_velocity = 217.68
+angular_velocity_random = 0.34
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 6.81
+color_ramp = SubResource( 4 )
+
+[node name="Line" type="ColorRect"]
+material = SubResource( 2 )
+margin_right = 100.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 4 )
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particle" type="Particles2D" parent="."]
+position = Vector2( 3, 8 )
+amount = 4
+lifetime = 1.2
+process_material = SubResource( 5 )
