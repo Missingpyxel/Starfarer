@@ -1,43 +1,43 @@
 [gd_scene load_steps=76 format=2]
 
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Comet.gd" type="Script" id=1]
-[ext_resource path="res://nebula/Save Game Director/Data Structures/Cosmica Area.gd" type="Script" id=2]
-[ext_resource path="res://nebula/Character Status Director/Tri.png" type="Texture" id=3]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Logo.png" type="Texture" id=4]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Line.png" type="Texture" id=5]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Sky.png" type="Texture" id=6]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Shine.png" type="Texture" id=7]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/TBurst.tres" type="Material" id=8]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Meteor.png" type="Texture" id=9]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Welkyn.png" type="Texture" id=10]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Noise/White Fog.tres" type="Material" id=11]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Noise/Green Fog.tres" type="Material" id=12]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Hourglass.png" type="Texture" id=13]
-[ext_resource path="res://origins/Universal/Fonts/osd_mono.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Title Screen.gd" type="Script" id=15]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Act Selector.gd" type="Script" id=16]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Lorekeeper.png" type="Texture" id=17]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Difficulty.png" type="Texture" id=18]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Save Selector.png" type="Texture" id=19]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Selector.gd" type="Script" id=20]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Starfarer.png" type="Texture" id=21]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/Cheat.png" type="Texture" id=22]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Difficulty Selector.gd" type="Script" id=23]
-[ext_resource path="res://origins/Universal/Fonts/lores.ttf" type="DynamicFontData" id=24]
-[ext_resource path="res://origins/Universal/Fonts/lores bold.ttf" type="DynamicFontData" id=25]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/CWButton.png" type="Texture" id=26]
+[ext_resource path="res://core/Universal/Fonts/osd_mono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://core/Universal/Fonts/lores bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://core/Universal/Fonts/lores.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Logo.png" type="Texture" id=4]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Line.png" type="Texture" id=5]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Sky.png" type="Texture" id=6]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Shine.png" type="Texture" id=7]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/TBurst.tres" type="Material" id=8]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Meteor.png" type="Texture" id=9]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Welkyn.png" type="Texture" id=10]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Slot Stuff/Save Selector.png" type="Texture" id=11]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Slot Stuff/Starfarer.png" type="Texture" id=12]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Slot Stuff/Lorekeeper.png" type="Texture" id=13]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/CWButton.png" type="Texture" id=14]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Noise/White Fog.tres" type="Material" id=15]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Slot Stuff/Cheat.png" type="Texture" id=16]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Hourglass.png" type="Texture" id=17]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Slot Stuff/Difficulty.png" type="Texture" id=18]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Noise/Green Fog.tres" type="Material" id=19]
+[ext_resource path="res://nebula/Character Status Director/Tri.png" type="Texture" id=20]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Title Screen.gd" type="Script" id=21]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Comet.gd" type="Script" id=22]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Act Selector.gd" type="Script" id=23]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Save Selector.gd" type="Script" id=24]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Difficulty Selector.gd" type="Script" id=25]
+[ext_resource path="res://nebula/Save Game Director/Data Structures/Cosmica Area.gd" type="Script" id=26]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
-font_data = ExtResource( 25 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 7
 extra_spacing_bottom = -4
-font_data = ExtResource( 24 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 26 )
+texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 20, 10 )
 
 [sub_resource type="StyleBoxTexture" id=4]
@@ -47,12 +47,12 @@ region_rect = Rect2( 0, 0, 20, 10 )
 [sub_resource type="StyleBoxTexture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 26 )
+texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 20, 10 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 12
-font_data = ExtResource( 25 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0.00343643, 0.254296, 0.786942, 1 )
@@ -788,7 +788,7 @@ color = Color( 1, 1, 1, 0.188235 )
 
 [sub_resource type="DynamicFont" id=31]
 size = 8
-font_data = ExtResource( 25 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=32]
 bg_color = Color( 1, 1, 1, 0.117647 )
@@ -803,19 +803,19 @@ bg_color = Color( 1, 1, 1, 0.0588235 )
 
 [sub_resource type="DynamicFont" id=36]
 size = 6
-font_data = ExtResource( 24 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=37]
 bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [sub_resource type="DynamicFont" id=38]
 size = 6
-font_data = ExtResource( 25 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=39]
 size = 4
 extra_spacing_bottom = -2
-font_data = ExtResource( 14 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=40]
 
@@ -829,7 +829,7 @@ font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=45]
 size = 6
-font_data = ExtResource( 25 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=46]
 step = 0.02
@@ -1000,7 +1000,7 @@ tracks/0/keys = {
 }
 
 [node name="Title Screen" type="CanvasLayer"]
-script = ExtResource( 2 )
+script = ExtResource( 26 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -1080,7 +1080,7 @@ __meta__ = {
 
 [node name="Missingpixel Card" type="CanvasLayer" parent="."]
 layer = 2
-script = ExtResource( 15 )
+script = ExtResource( 21 )
 
 [node name="Background" type="ColorRect" parent="Missingpixel Card"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1099,7 +1099,7 @@ margin_top = 77.5
 margin_right = 185.0
 margin_bottom = 102.5
 mouse_filter = 2
-texture = ExtResource( 13 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1142,7 +1142,7 @@ __meta__ = {
 }
 
 [node name="White Fog" type="ColorRect" parent="Visuals/Fog"]
-material = ExtResource( 11 )
+material = ExtResource( 15 )
 margin_right = 1263.0
 margin_bottom = 1201.0
 mouse_filter = 2
@@ -1152,7 +1152,7 @@ __meta__ = {
 }
 
 [node name="Green Fog" type="ColorRect" parent="Visuals/Fog/White Fog"]
-material = ExtResource( 12 )
+material = ExtResource( 19 )
 margin_right = 1263.0
 margin_bottom = 1201.0
 mouse_filter = 2
@@ -1194,13 +1194,13 @@ preprocess = 6.0
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 14 )
-texture = ExtResource( 3 )
+texture = ExtResource( 20 )
 
 [node name="Comet" type="Sprite" parent="Visuals"]
 position = Vector2( 62.3176, 25.1297 )
 rotation = -3.66519
 scale = Vector2( 0.748035, 0.748035 )
-script = ExtResource( 1 )
+script = ExtResource( 22 )
 shake = 3.49625
 
 [node name="Sprite" type="Sprite" parent="Visuals/Comet"]
@@ -1312,7 +1312,7 @@ __meta__ = {
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
-script = ExtResource( 16 )
+script = ExtResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1322,8 +1322,8 @@ margin_left = 80.0
 margin_top = -140.0
 margin_right = 240.0
 mouse_filter = 2
-texture = ExtResource( 19 )
-script = ExtResource( 20 )
+texture = ExtResource( 11 )
+script = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1383,7 +1383,7 @@ margin_top = -0.37458
 margin_right = 320.0
 margin_bottom = 179.625
 mouse_filter = 2
-script = ExtResource( 23 )
+script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1406,7 +1406,7 @@ margin_top = 14.0
 margin_right = 38.0
 margin_bottom = 44.0
 mouse_filter = 2
-texture = ExtResource( 21 )
+texture = ExtResource( 12 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1460,7 +1460,7 @@ margin_top = 13.0
 margin_right = 38.0
 margin_bottom = 43.0
 mouse_filter = 2
-texture = ExtResource( 17 )
+texture = ExtResource( 13 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1517,7 +1517,7 @@ margin_top = 13.0
 margin_right = 38.0
 margin_bottom = 43.0
 mouse_filter = 2
-texture = ExtResource( 22 )
+texture = ExtResource( 16 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://origins/Universal/Fonts/lores bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://origins/Planets/Planetless/Title Screen/Circle.tres" type="Material" id=2]
+[ext_resource path="res://core/Universal/Fonts/lores bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://core/Planets/Planetless/Title Screen/Circle.tres" type="Material" id=2]
 [ext_resource path="res://nebula/Save Game Director/Data Structures/Cosmica Chapter.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]

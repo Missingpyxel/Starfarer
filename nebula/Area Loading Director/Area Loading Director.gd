@@ -6,6 +6,8 @@ var current_scene_type = null
 
 var character_pos = null
 
+onready var registry = Nebula.get_node("Registry Director")
+
 func _ready():
 	Nebula.connect("area_loaded",self,"load_area_after")
 
@@ -19,10 +21,14 @@ func load_area(area:String,path):
 func load_area_after():
 	var root =  Nebula.get_root()
 	
-	# Add modifier node
-	if(current_modifier and current_modifier != "None"):
-		var modifier_node = current_path.replace("Area.tscn/","Modifiers/" + current_modifier + ".tscn/")
-		root.add_child(load(modifier_node).instance())
+	# Try modifiers
+	for mod in registry.modifier_registry[current_area]:
+		var inst = load(mod).instance()
+		
+		if(inst.load_if()):
+			root.add_child(inst)
+		else:
+			inst.queue_free()
 	
 	# Character spawning doo doo
 	var st = root.scene_type
@@ -55,5 +61,4 @@ func load_area_after():
 	if(st != "menu"):
 		
 		if(character_pos):
-			print(character_pos)
 			Nebula.get_node("Character Loading Director").current_character.position = character_pos		

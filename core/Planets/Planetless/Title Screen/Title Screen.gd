@@ -27,7 +27,6 @@ func _input(event):
 func fade_away():
 	var flash = get_parent().get_node("Visuals/Flash")
 	var ft = flash.get_node("Tween")
-	print("fade")
 	ft.interpolate_property(flash, "modulate:a", flash.modulate.a, 0.0, 0.7, Tween.TRANS_QUAD, Tween.EASE_IN)
 	ft.start()
 

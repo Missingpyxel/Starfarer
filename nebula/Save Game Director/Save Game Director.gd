@@ -87,15 +87,11 @@ func initialize_slot(diff : String):
 	target_save = str(maxn)
 	
 	save_universal()
-	
-	print(target_save)
 
 # If a save doesn't already exist for chapter...
 func initialize_save(bypass = false):
-	print("Checking if save exits for " + target_chapter)
 	
 	if(bypass or !save_exists(target_chapter)):
-		print("Initializing new save for " + target_chapter)
 		
 		var dir = Directory.new()
 		dir.make_dir("user://saves/" + str(target_save) + "/chapters/" + str(target_chapter) + "/")
@@ -177,10 +173,16 @@ func get_cheat_status():
 func _ready():
 	var dir = Directory.new()
 	
+	Nebula.log("SAVEGAME", "Checking necessary user directories...")
+	
 	for folder in necessary_directories:
 		if(!dir.dir_exists("user://" + folder + "/")): 
+			
+			Nebula.log("SAVEGAME", "Creating new directory " + folder)
+			
 			dir.make_dir("user://" + folder + "/")
 			
-			print(folder)
 			if(folder == "saves"):
+				
+				Nebula.log("SAVEGAME", "Assuming first boot due to absence of saves")
 				firstboot = true

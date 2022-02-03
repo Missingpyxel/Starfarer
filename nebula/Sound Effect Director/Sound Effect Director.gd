@@ -13,7 +13,6 @@ func play_effect(effect_name):
 func _process(delta):
 	for child in get_children():
 		if(!child.playing):
-			print(child)
 			child.queue_free()
 	
 func _ready():

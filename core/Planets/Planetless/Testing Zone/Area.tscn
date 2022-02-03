@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://origins/Planets/Planetless/Testing Zone/Textures/Test Tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://core/Planets/Planetless/Testing Zone/Textures/Test Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://nebula/Save Game Director/Data Structures/Cosmica Area.gd" type="Script" id=2]
 [ext_resource path="res://nebula/Zone Director/Cosmica Zone.gd" type="Script" id=3]
 

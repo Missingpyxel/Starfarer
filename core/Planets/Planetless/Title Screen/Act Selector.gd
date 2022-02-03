@@ -19,7 +19,7 @@ func draw_lines(name : String):
 			var line = Line2D.new()
 			line.points = [self.get_node(name).rect_position + self.get_node(name).rect_size / 2, child.rect_position + child.rect_size / 2]
 			line.width = 2
-			line.gradient = load("res://origins/Planets/Planetless/Title Screen/Save Slot Stuff/good_gradient.tres")
+			line.gradient = load("res://core/Planets/Planetless/Title Screen/Save Slot Stuff/good_gradient.tres")
 			
 			lines.add_child(line)
 			

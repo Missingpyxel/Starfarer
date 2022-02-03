@@ -74,7 +74,6 @@ func start_dialogue(path : String):
 	
 	var objects_list = parse_json(target_file.get_as_text())
 	target_file.close()
-	print(objects_list)
 	
 	current_dialogue = construct_dialogue_object(objects_list)
 	current_index = [0,0]

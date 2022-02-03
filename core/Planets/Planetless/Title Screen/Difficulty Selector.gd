@@ -6,7 +6,6 @@ func set_selector():
 		self.rect_position.x = -32.5
 
 func dc_pressed(diff : String):
-	print("???")
 	Nebula.get_node("Save Game Director").initialize_slot(diff)
 	get_parent().get_node("Act Selector").construct_act_selector()
 	

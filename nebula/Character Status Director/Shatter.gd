@@ -36,10 +36,6 @@ func bisect(polygon : PoolVector2Array,p1 : Vector2, p2 : Vector2):
 	var poly_1 = PoolVector2Array()
 	var poly_2 = PoolVector2Array()
 	
-	print(polygon)
-	print(p1)
-	print(p2)
-	
 	# arrange vectors
 	if(search_p.find(p2) < search_p.find(p1)):
 		var temp = p1
@@ -162,8 +158,6 @@ func bisect_poly_by_line(poly: PoolVector2Array, point: Vector2, slope: float):
 	for group in to_add:
 		new_poly.insert(new_poly.find(group[1]) + 1, group[0])
 		
-	print("pv2a" + str(new_poly))
-		
 	if(len(to_add) == 2):
 
 		var p1 = to_add[0][0]
@@ -204,7 +198,6 @@ func bisect_polys_by_line(polygons : Array, rang: Vector2, type : String):
 		angle_progression += rand_range(0,PI*2-0.1)/angle_step
 	
 	for poly in polygons:
-		print("polygon" + str(poly))
 		new_polygons.append_array(bisect_poly_by_line(poly,point,slope))
 		
 	return new_polygons
@@ -229,8 +222,6 @@ func shatter(rect_size: Vector2):
 	polygons = bisect_polys_by_line(polygons,rect_size,"circum")
 	polygons = bisect_polys_by_line(polygons,rect_size,"circum")
 	
-	print(len(polygons))
-		
 	
 	for polygon in polygons:
 		var p = Polygon2D.new()
@@ -241,7 +232,6 @@ func shatter(rect_size: Vector2):
 
 func _process(delta):
 	if(self.visible == false):
-		print("e")
 		
 		for child in self.get_children():
 			child.queue_free()

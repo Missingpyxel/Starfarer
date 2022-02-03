@@ -1,6 +1,6 @@
 extends Node
 
-var directories = ["res://origins/"]
+var directories = ["res://core/","res://origins/","res://story/"]
 
 var character_registry = {}
 var area_registry = {}
@@ -24,11 +24,19 @@ func list_files_in_dir(directory : String):
 
 func _ready():
 	
+	Nebula.log("REGISTRY","Initializing core directories...")
+	
+	# Mod Loading
+	for mod in list_files_in_dir("user://mods/"):
+		directories.append("user://mods/" + mod + "/")
+		Nebula.log("REGISTRY","Found mod: " + mod)
+	
 	# Phase 1
 	for directory in directories:
+		Nebula.log("REGISTRY","Loading directory: " + directory)
+		
 		# Character Registry
 		var chars = list_files_in_dir(directory + "/Characters/")
-		print(chars)
 		for chara in chars:
 			character_registry[chara] = load(directory + "/Characters/" + chara + "/Character.tscn/")
 
@@ -41,22 +49,29 @@ func _ready():
 			
 			for area in areas:
 				
-				#add loop for modifiers n such
+				if !(area in modifier_registry.keys()):
+					modifier_registry[area] = []
 				
-				if(dir.file_exists(directory + "/Planets/" + planet + "/" + area + "/Area.tscn/")):
+				var mod_path = directory + "Planets/" + planet + "/" + area + "/Modifiers/"
+				
+				if(dir.dir_exists(mod_path)):
+					var modifiers = list_files_in_dir(mod_path)
+					
+					for modifier in modifiers:
+						modifier_registry[area].append(mod_path + modifier)
+						
+				var area_path = directory + "Planets/" + planet + "/" + area + "/Area.tscn"
+				
+				if(dir.file_exists(area_path)):
 					area_registry[area] = {
-						"Path" : directory + "/Planets/" + planet + "/" + area + "/Area.tscn/",
+						"Path" : area_path,
 						"Planet" : planet,
 					}
 				
-				
-				
 		# Chapter Registry
-		var chapters = list_files_in_dir(directory + "/Chapters/")
-		
-		for chapter in chapters:
-			chapter_registry[chapter] = load(directory + "/Chapters/" + chapter + "/Chapter.tscn/").instance()
-				
-		print(character_registry)
-		print(area_registry)
-		print(chapter_registry)
+		if(dir.dir_exists(directory + "Chapters/")):
+			var chapters = list_files_in_dir(directory + "Chapters/")
+			
+			for chapter in chapters:
+				chapter_registry[chapter] = load(directory + "Chapters/" + chapter + "/Chapter.tscn/").instance()
+			
