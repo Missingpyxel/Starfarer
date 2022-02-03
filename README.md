@@ -1,3 +1,5 @@
 # Starfarer
 
-I'll get to writing this eventually lmao
+Starfarer is
+
+### About buying the game...
