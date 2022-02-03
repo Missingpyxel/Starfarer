@@ -1,4 +1,3 @@
-
 # Godot-specific ignores
 .import/
 export.cfg
@@ -11,3 +10,7 @@ data_*/
 addons/Todo_Manager/todo.cfg
 *.csproj
 *.sln
+
+# Addon ignores
+
+addons/
