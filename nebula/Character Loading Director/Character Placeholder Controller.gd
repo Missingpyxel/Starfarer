@@ -1,4 +1,4 @@
-extends KinematicBody2D
+tends KinematicBody2D
 
 func _process(delta):
 	

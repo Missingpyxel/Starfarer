@@ -1,6 +1,6 @@
 extends Node
 
-var directories = ["res://core/","res://origins/","res://story/"]
+var directories = ["res://content/core/","res://content/origins/","res://content/story/"]
 
 var character_registry = {}
 var area_registry = {}
