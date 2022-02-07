@@ -1,0 +1,186 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://resources/theme/DarkBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://objects/Value Node.gd" type="Script" id=2]
+[ext_resource path="res://resources/lores.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://objects/lores bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://resources/theme/Accretheme.tres" type="Theme" id=5]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float corner_stretch = 0.15;
+
+void fragment() {
+	if( 
+		(UV.y < (0.5 - UV.x/corner_stretch)) ||
+		(UV.y > (0.5 + UV.x/corner_stretch)) ||
+		(UV.y < (0.5 - ((1.0 - UV.x)/corner_stretch))) ||
+		(UV.y > (0.5 + ((1.0 - UV.x)/corner_stretch)))
+		) {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/corner_stretch = 0.25
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform float corner_stretch = 0.15;
+uniform float ratio = 0.25;
+
+void fragment() {
+	if( 
+		(UV.y < (0.5 - UV.x/corner_stretch)) ||
+		(UV.y < (0.5 - ((1.0 - UV.x)/corner_stretch))) 
+		) {
+		COLOR = vec4(0,0,0,0);
+	}
+	
+	if(UV.y > ratio) {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/corner_stretch = 0.25
+shader_param/ratio = 0.25
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+
+uniform float corner_stretch = 0.15;
+
+void fragment() {
+	if( 
+		(UV.y < (0.5 - UV.x/corner_stretch)) ||
+		(UV.y > (0.5 + UV.x/corner_stretch)) ||
+		(UV.y < (0.5 - ((1.0 - UV.x)/corner_stretch))) ||
+		(UV.y > (0.5 + ((1.0 - UV.x)/corner_stretch)))
+		) {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/corner_stretch = 0.25
+
+[node name="Value Node" type="ColorRect"]
+material = SubResource( 2 )
+margin_left = 1175.0
+margin_top = 270.0
+margin_right = 1575.0
+margin_bottom = 450.0
+color = Color( 0.0862745, 0.0666667, 0.0941176, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title Bar" type="ColorRect" parent="."]
+material = SubResource( 4 )
+margin_right = 400.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0.0431373, 0.0352941, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="LineEdit" parent="Title Bar"]
+margin_left = 55.0
+margin_top = 3.0
+margin_right = 345.0
+margin_bottom = 39.0
+custom_styles/read_only = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Value Node"
+
+[node name="Key" type="LineEdit" parent="."]
+margin_left = 65.0
+margin_top = 117.0
+margin_right = 333.0
+margin_bottom = 153.0
+custom_styles/read_only = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 9 )
+placeholder_text = "key:location"
+placeholder_alpha = 0.25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="LineEdit" parent="."]
+visible = false
+margin_left = 238.0
+margin_top = 117.0
+margin_right = 333.0
+margin_bottom = 153.0
+custom_styles/read_only = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 9 )
+placeholder_text = "value"
+placeholder_alpha = 0.25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TypeSelector" type="OptionButton" parent="."]
+margin_left = 43.0
+margin_top = 62.0
+margin_right = 229.0
+margin_bottom = 101.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OperationSelector" type="OptionButton" parent="."]
+margin_left = 244.0
+margin_top = 62.0
+margin_right = 351.0
+margin_bottom = 101.0
+theme = ExtResource( 5 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="ColorRect" parent="."]
+show_behind_parent = true
+material = SubResource( 11 )
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 403.0
+margin_bottom = 183.0
+mouse_filter = 2
+color = Color( 0.431373, 0.784314, 1, 0.25098 )
+
+[connection signal="item_selected" from="TypeSelector" to="." method="_on_TypeSelector_item_selected"]

@@ -1,0 +1,18 @@
+{
+	"Dialogue Node": {
+		"type": "dialogue",
+		"character": "",
+		"dialogue": "",
+		"position_x": 1058,
+		"position_y": 173,
+		"next": "Dialogue Node28"
+	},
+	"Dialogue Node28": {
+		"type": "dialogue",
+		"character": "",
+		"dialogue": "",
+		"position_x": 633,
+		"position_y": 526,
+		"next": null
+	}
+}

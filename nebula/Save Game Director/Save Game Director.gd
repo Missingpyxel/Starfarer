@@ -6,6 +6,13 @@ var target_time = null
 
 var firstboot = false
 
+# Persistent
+var default_settings = "res://nebula/Save Game Director/default_settings.json"
+var settings = {
+	
+}
+var cheat_access = false
+
 # Universal
 var difficulty = "starfarer"
 
@@ -99,6 +106,38 @@ func initialize_save(bypass = false):
 		var chapter_obj = Nebula.get_node("Registry Director").chapter_registry[target_chapter]
 		save(chapter_obj)
 
+# Settings and stuff
+func load_persistent():
+	var file = File.new()
+	
+	if(file.file_exists("user://settings.json")):
+		file.open("user://settings.json", File.READ)
+		var persistent_data = JSON.parse(file.get_as_text()).get_result()
+		
+		settings = persistent_data["settings"]
+		cheat_access = persistent_data["cheat_access"]
+		
+	else:
+		file.open(default_settings, File.READ)
+		
+		var default = JSON.parse(file.get_as_text()).get_result()
+		file.close()
+		
+		settings = default
+		
+		save_persistent()
+		load_persistent()
+
+func save_persistent():
+	var persistent_data = {}
+	persistent_data["settings"] = settings
+	persistent_data["cheat_access"] = cheat_access
+	
+	var persistent_file = File.new()
+	persistent_file.open("user://settings.json", File.WRITE)
+	persistent_file.store_string(JSON.print(persistent_data, "\t"))
+	persistent_file.close()
+
 # All stuff that transfers across the whole slot. Difficulty, character unlocks and deaths
 func save_universal():
 	if(target_save):
@@ -160,15 +199,7 @@ func load_game():
 	Nebula.load_area(chapter_data["area"]["area"])
 	ald.character_pos = parse_json(chapter_data["area"]["position"])
 	
-func grant_cheat_access():
-	var file = File.new()
-	file.open("user://persistent/cheat.access",File.WRITE)
-	file.store_string("GG")
 	file.close()
-	
-func get_cheat_status():
-	var file = File.new()
-	return file.file_exists("user://persistent/cheat.access")
 	
 func _ready():
 	var dir = Directory.new()

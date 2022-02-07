@@ -1,12 +1,10 @@
 extends Control
 
 var dialogue_node = preload("res://objects/Dialogue Node.tscn")
+var value_node = preload("res://objects/Value Node.tscn")
 
-func _on_Dialogue_Node_pressed():
-	pass
-
-func _on_Dialogue_Node_button_down():
-	var node = dialogue_node.instance()
+func create_object(resource):
+	var node = resource.instance()
 	
 	node.placing = true
 	node.obj = get_parent().get_node("Objects")
@@ -15,4 +13,10 @@ func _on_Dialogue_Node_button_down():
 	
 	get_parent().get_node("Objects").add_child(node)
 	
-	node.get_node("Titlebar/TextEdit").text = node.name
+	node.get_node("Title Bar/TextEdit").text = node.name
+
+func _on_Dialogue_Node_button_down():
+	create_object(dialogue_node)
+
+func _on_Value_Node_button_down():
+	create_object(value_node)

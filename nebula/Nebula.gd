@@ -53,3 +53,4 @@ func _ready():
 	Nebula.log("NEBULA","Loading complete!")
 	phase = "GAMEPLAY"
 	load_area("Title Screen")
+	get_node("Save Game Director").load_persistent()

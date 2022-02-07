@@ -1,23 +1,73 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://resources/lores bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://objects/lores bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Object Spawner.gd" type="Script" id=3]
 [ext_resource path="res://Saveloader.gd" type="Script" id=4]
+[ext_resource path="res://Hourglass.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="Shader" id=1]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 24
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.262745, 0.180392, 0.298039, 1 )
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.266667, 0.176471, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+
+[sub_resource type="StyleBoxFlat" id=13]
+
+[sub_resource type="StyleBoxFlat" id=14]
+
+[sub_resource type="StyleBoxFlat" id=15]
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.396078, 0.458824, 0.709804, 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=18]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Accretion" type="Control"]
 anchor_right = 1.0
@@ -27,6 +77,7 @@ __meta__ = {
 }
 
 [node name="Canvas" type="ColorRect" parent="."]
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 3 )
@@ -42,9 +93,9 @@ __meta__ = {
 }
 
 [node name="Sidebar" type="ColorRect" parent="."]
-margin_top = 1.5874
+margin_top = 21.0
 margin_right = 342.0
-margin_bottom = 1077.59
+margin_bottom = 1077.0
 color = Color( 0.121569, 0.0901961, 0.129412, 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -56,28 +107,126 @@ margin_left = 18.0
 margin_top = 62.0
 margin_right = 323.0
 margin_bottom = 122.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Dialogue Node"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value Node" type="Button" parent="Sidebar"]
+margin_left = 18.0
+margin_top = 136.0
+margin_right = 323.0
+margin_bottom = 196.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 8 )
+text = "Value Node"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Top Bar" type="ColorRect" parent="."]
 anchor_right = 1.0
-margin_bottom = 48.0
+margin_bottom = 68.0
 color = Color( 0.0431373, 0.0352941, 0.0470588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="New" type="Button" parent="Top Bar"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 114.0
+margin_bottom = 52.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 8 )
+text = "New"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Open" type="Button" parent="Top Bar"]
+margin_left = 126.0
+margin_top = 14.0
+margin_right = 224.0
+margin_bottom = 52.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 8 )
+text = "Open"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="Top Bar"]
+margin_left = 236.0
+margin_top = 14.0
+margin_right = 334.0
+margin_bottom = 52.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 8 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Top Bar"]
+margin_right = 1920.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 17 )
+text = "New File"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hourglass" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -219.622
+margin_top = -116.252
+margin_right = -11.6221
+margin_bottom = -12.2523
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hourglass"]
+anims/Flash = SubResource( 18 )
 
 [connection signal="mouse_entered" from="Canvas" to="Objects" method="_on_Canvas_mouse_entered"]
 [connection signal="mouse_exited" from="Canvas" to="Objects" method="_on_Canvas_mouse_exited"]
 [connection signal="mouse_entered" from="Objects" to="Objects" method="_on_Objects_mouse_entered"]
 [connection signal="mouse_exited" from="Objects" to="Objects" method="_on_Objects_mouse_exited"]
 [connection signal="button_down" from="Sidebar/Dialogue Node" to="Sidebar" method="_on_Dialogue_Node_button_down"]
-[connection signal="pressed" from="Sidebar/Dialogue Node" to="Sidebar" method="_on_Dialogue_Node_pressed"]
+[connection signal="button_down" from="Sidebar/Value Node" to="Sidebar" method="_on_Value_Node_button_down"]
+[connection signal="pressed" from="Top Bar/New" to="Objects" method="_on_New_pressed"]
+[connection signal="pressed" from="Top Bar/Open" to="Objects" method="_on_Open_pressed"]
+[connection signal="pressed" from="Top Bar/Save" to="Objects" method="_on_Save_pressed"]

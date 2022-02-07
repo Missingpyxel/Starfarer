@@ -1,6 +1,7 @@
 extends ColorRect
 
-var type = "line"
+func get_type():
+	return "line"
 
 var pt1 = Vector2(400,500)
 var pt2 = Vector2(700,300)
@@ -35,7 +36,7 @@ func _input(event):
 			var found = false
 			
 			for object in get_parent().get_children():
-				if(object.type == "dialogue"):
+				if(object.get_type() == "dialogue" || object.get_type() == "value"):
 					if(object.mouse_inside == true and object != obj1):
 						obj2 = object
 						obj1.connection = obj2

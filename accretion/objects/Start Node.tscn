@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/Start Node.gd" type="Script" id=1]
+[ext_resource path="res://objects/lores bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float corner_stretch = 0.15;
+
+void fragment() {
+	if( 
+		(UV.y < (0.5 - ((1.0 - UV.x)/corner_stretch))) ||
+		(UV.y > (0.5 + ((1.0 - UV.x)/corner_stretch)))
+		) {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/corner_stretch = 0.4
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="Start Node" type="ColorRect"]
+material = SubResource( 2 )
+margin_left = 400.0
+margin_top = 110.0
+margin_right = 545.0
+margin_bottom = 202.0
+color = Color( 0.0862745, 0.0666667, 0.0941176, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="ColorRect" parent="."]
+show_behind_parent = true
+material = SubResource( 2 )
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 148.0
+margin_bottom = 95.0
+mouse_filter = 2
+color = Color( 0.431373, 0.784314, 1, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -0.690765
+margin_top = 10.4545
+margin_right = 119.309
+margin_bottom = 79.4545
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+align = 1
+valign = 1
